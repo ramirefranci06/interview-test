@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: Java Interview
+  profiles:
+    active: local
