@@ -51,7 +51,7 @@ public class ReservationControllerTest
         inputReservation.setRoomNumber(20001);
 
         InvalidReservationDataException exception = assertThrows(InvalidReservationDataException.class, () -> controller.saveReservation(inputReservation));
-        assertEquals(exception.getMessage(), "Resservation dates are required");
+        assertEquals(exception.getMessage(), "Reservation dates are required");
     }
 
     @Test

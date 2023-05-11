@@ -4,12 +4,12 @@ on:
 
 jobs:
   verify:
-    name: Verify with Maven
+    name: Verify with Maven 👍
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
 
-      - name: Set up Java version
+      - name: Intall Java
         uses: actions/setup-java@v1
         with:
           java-version: '11'
