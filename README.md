@@ -61,4 +61,6 @@ This test class implements
 
 `@SpringBootTest` and`@ExtendWith(SpringExtension.class)` in order to create an instance of the application with profile 'local' as defined in .yml file.
 
-Finally, I implemented .yml environment files so we can define proper configuration for desired environments. eg: dev, test, stage and prod
+Also, I implemented .yml environment files so we can define proper configuration for desired environments. eg: dev, test, stage and prod
+
+Finally I implemented an automated workflow in github actions that runs `mvn clean verify` test cases on every commit pushed to the repo, this way we can make sure our code is working fine :).
