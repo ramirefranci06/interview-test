@@ -1,3 +1,4 @@
+name: Maven verify
 on:
   push:
 
