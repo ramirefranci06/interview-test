@@ -1,0 +1,60 @@
+name: basic commands
+
+on:
+  workflow_dispatch:
+jobs:
+  actions-test:
+    name: my github actions
+    runs-on: ubuntu-latest
+
+    steps:
+      # this copy the repository to the temp files in github, so we can use them in the workflow
+      - name: checkout the repo
+        uses: actions/checkout@v2
+
+      #use an external github action from another github actions repo and printing the output
+      - name: use external JS action
+        id: greet
+        uses: actions/hello-world-javascript-action@v1
+        with:
+          who-to-greet: Francisco
+
+      # output names like "time" are defined in github action documentation
+      - name: log greeting time
+        run:
+          echo "${{ steps.greet.outputs.time }}"
+
+      - name: list files
+        run: |
+          pwd
+          ls
+
+  run-my-shell-command:
+    name: my shell script
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: echo a string
+        run: echo "hello world"
+
+      - name: script
+        run: |
+          node -v
+          npm -v
+      - name: python command
+        shell: python
+        run: |
+          import platform
+          print(platform.processor())
+
+  run-my-windows-command:
+    name: windows scripts
+    runs-on: windows-latest
+    needs: run-my-shell-command
+
+    steps:
+      - name: directory power shell
+        run: pwd
+      - name: directory bash
+        run: pwd
+        shell: bash
