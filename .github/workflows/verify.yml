@@ -1,6 +1,8 @@
 name: Maven verify
 on:
   push:
+    branches:
+      - master
 
 jobs:
   verify:
